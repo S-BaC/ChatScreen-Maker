@@ -1,32 +1,45 @@
 :root{
-    --primaryColor : white;
-    --msgColor: #ccc;
-    --msgWidth: 300px;
+    --deviceWidth: 207px;
+    --deviceHeight: 368px;
+    --gapBig: 20px;
+    --gapNormal: 10px;
+    --gapSmall: 5px;
+    --gapTiny: 2px;
+
+    --primaryColor: white;
+    --msgColor:rgb(86, 86, 218);
+    --replyColor: #ccc;
+    --msgWidth: 150px;
     --font: 'San Francisco', 'Helvetica Neue', 'Arial' ;
-    --nameHeight: 70px;
-    --inputHeight: 50px;
-    --displayHeight: 616px;
-    --iconSmall:30px;
-    --iconBig:50px;
+    --nameHeight: 39px;
+    --inputHeight: 20px;
+    --displayHeight: 270px;
+    --iconSmall:15px;
+    --iconBig:25px;
 }
 
 body{
-    background-color: bisque;
+    background-color: whitesmoke;
     font-family: var(--font) ;
-    font-size: 20px;
+    display: flex;
+    gap:50px;
+    margin-top:50px;
+    justify-content: center;
+    align-items: baseline;
 }
 
 .screen{
-    position:absolute;
-    top:300px;
-    left:200px;
-
-    width:414px;
-    height:736px;
+    font-size: 10px;
+    position:relative;
+    width: var(--deviceWidth);
+    height: var(--deviceHeight);
 
     border: 1px solid black;
     background-color: var(--primaryColor);
     box-shadow: 0px 0px 5px black;
+
+    /* display:flex;
+    flex-direction: column; */
 }
 
 .top{
@@ -35,7 +48,7 @@ body{
     display:flex;
     align-items: center;
     font-weight: bold;
-    margin-bottom:20px;
+    margin-bottom:var(--gapSmall);
 }
 .top p+.topIcon{
     margin-left: auto;
@@ -43,17 +56,17 @@ body{
 .topPic{
     width:var(--iconBig);
     height:var(--iconBig);
-    padding: 0px 20px; 
+    padding: 0px var(--gapNormal); 
 }
 .topIcon, .botIcon{
     width:var(--iconSmall);
     height:var(--iconSmall);
-    padding: 0px 10px;
+    padding: 0px var(--gapSmall);
 }
 
 .middle{
-    padding:10px;
-    gap:10px;
+    padding:var(--gapNormal);
+    gap:var(--gapSmall);
     height:var(--displayHeight);
     overflow-y: scroll;
 }
@@ -63,28 +76,31 @@ body{
 }
 .msg, .reply{
     display:flex;
-    gap:10px;
+    gap:var(--gapSmall);
     width: var(--msgWidth);
-    overflow:hidden;
 }
 .msg p, .msg img, .reply p, .reply img{
     margin:0px;
     margin-top: auto;
-    margin-bottom: 10px;
+    margin-bottom: var(--gapSmall);
 }
-
 .msg p, .reply p{
-    background-color: var(--msgColor);
-    padding:10px;
+    background-color: var(--replyColor);
+    padding:var(--gapSmall);
     border-radius: 10px;
-    overflow-block:hidden;
 }
 .reply, .reply p{
     margin-left: auto;
 }
 .reply p{
-    background-color: rgb(86, 86, 218);
+    background-color: var(--msgColor);
     color:white;
+}
+.msgConsecTop p{
+    margin-bottom:var(--gapTiny);
+}
+.msgConsecTop img{
+    visibility: hidden;
 }
 
 .bottom{
@@ -94,7 +110,7 @@ body{
     align-items: center;
     height:var(--inputHeight);
     width:95%;
-    padding:5px;
+    padding:var(--gapSmall);
     background-color: var(--primaryColor);
 }
 
@@ -104,8 +120,8 @@ body{
     background-color: #ccc;
     display:flex;
     align-items: center;
-    padding:5px;
-    padding-left: 10px;
+    padding:var(--gapSmall);
+    padding-left:var(--gapSmall);
 }
 
 .inputBox img{
@@ -115,4 +131,50 @@ body{
 
 .inputBox ~ .topIcon{
     padding-right: 0px;
+}
+
+/* User Input Section */
+.userInput{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    color:white;
+}
+.optionPanel, .msgPanel{
+    padding:10px;
+    display:flex;
+    gap:10px;
+    justify-content: center;
+    
+}
+.optionPanel select{
+    padding:5px;
+    border:3px dotted var(msgColor);
+    border-color: var(--replyColor);
+}
+
+.inputForm{
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    margin:auto;
+    color:#333;
+}
+.inputForm textarea{
+    border-radius: 10px;
+    background-color: var(--msgColor);
+    color:white;
+    text-align: center;
+    padding:5px;
+    height:200px;
+}
+.inputForm button{
+    color:white;
+    font-weight: bold;
+    height:30px;
+    width:100%;
+    border:none;
+    box-shadow: 0px 0px 3px #333;
+    background-color: orange;
 }

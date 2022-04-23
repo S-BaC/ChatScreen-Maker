@@ -7,46 +7,34 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="screen">
+    <div class="screen"> 
       <div class="top">
-        <img src="icons/man.png" class="cusPic topPic" />
-        <p class="cusName">Mr. Coolguy</p>
+        <img src="icons/man.png" class="msgPic topPic" />
+        <p class="msgName">Mr. Coolguy</p>
         <img src="icons/phone-call.png" class="topIcon" />
         <img src="icons/video-camera.png" class="topIcon" />
         <img src="icons/info.png" class="topIcon" />
       </div>
       <div class="middle">
-
-        <div class="msg">
-          <img src="icons/man.png" class="cusPic profilePic" />
+        <!-- <div class="msg">
+          <img src="icons/man.png" class="msgPic profilePic" />
           <p>Hello I just wanna know if you still sell that.</p>
         </div>
         <div class="reply">
           <p>Thanks bro!</p>
-          <img src="icons/woman.png" class="cusPic profilePic" />
+          <img src="icons/woman.png" class="replyPic profilePic" />
         </div>
-        <div class="msg">
-          <img src="icons/man.png" class="cusPic profilePic" />
+        <div class="msg msgConsecTop">
+          <img src="icons/man.png" class="msgPic profilePic" />
           <p>These things are super delicious.</p>
         </div>
-
         <div class="msg">
-          <img src="icons/man.png" class="cusPic profilePic" />
+          <img src="icons/man.png" class="msgPic profilePic" />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
-            veritatis, illo inventore libero quaerat impedit similique qui nisi
-            provident sequi blanditiis sit sunt pariatur reiciendis. Asperiores
-            corrupti similique expedita ullam rem voluptates, optio in aliquam
-            eligendi velit modi ipsum quibusdam facere laudantium, a harum
-            dignissimos explicabo. Maxime tenetur alias, facere ad recusandae
-            animi placeat? Doloremque rem debitis, quod esse odit, ipsa quam
-            excepturi eum facere fugiat fuga. Officiis molestias earum libero
-            voluptate, possimus culpa mollitia quis tempora soluta, facilis
-            quibusdam dolor expedita minima consequuntur, explicabo similique!
-            Sunt rem iste ab ipsa doloribus praesentium in. Pariatur nesciunt
-            aperiam repellendus aliquid cupiditate.
+            v cupiditate.
           </p>
-        </div>
+        </div> -->
     </div>
     <div class="bottom">
         <img src="icons/four-dots.png" class="botIcon" />
@@ -60,6 +48,25 @@
         <img src="icons/smile.png" class="topIcon"/>
     </div>
     </div>
+
+    <div class="userInput">
+      <div class="optionPanel">
+        <select class="msgSender">
+          <option value="reply"> message from You</option>
+          <option value="msg"> message from Customer</option>
+        </select>
+      </div>
+      
+      <div class="msgPanel">
+        <form class="inputForm">
+          <p>Your Message:</p>
+          <textarea class="userMsg"></textarea>
+          <button class="confirmBtn"> Confirm </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
   </body>
 </html>
 
