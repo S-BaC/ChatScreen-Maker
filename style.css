@@ -22,7 +22,7 @@ body{
     background-color: whitesmoke;
     font-family: var(--font) ;
     display: flex;
-    gap:50px;
+    gap:10%;
     margin-top:50px;
     justify-content: center;
     align-items: baseline;
@@ -177,4 +177,47 @@ body{
     border:none;
     box-shadow: 0px 0px 3px #333;
     background-color: orange;
+}
+
+/*  Authentication Panel */
+
+.authPanel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:5px;
+    width: 250px;
+}
+.logo{
+    text-align: center;
+}
+.logo img{
+    width:50px;
+    height:50px;
+    padding:10px;
+}
+.head{
+    padding:10px;
+    background-color:var(--msgColor);
+    color:white;
+    width:200px;
+}
+.head:hover{
+    cursor: pointer;
+}
+.body{
+    padding:10px;
+    background-color:var(--primaryColor);
+    display:none;
+}
+.signinForm{
+    display: flex;
+    flex-direction: column;
+    margin:auto;
+    gap:5px;
+    font-size: 15px;
+}
+.signinForm input, .signinForm button{
+    border:none;
+    height:20px;
 }

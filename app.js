@@ -1,8 +1,14 @@
 /*
+
+v1.0
 - Started on 2022 Apr 22, 22:30.
 - Completed HTML, CSS around 0:15.
 - An extra 45 mins on design the next day.
 - Completed JS codes on 2022 Apr 22, 15:23, after around an hour.
+
+v2.0
+- Added some authntication features, mainly to test out Fireship Auth.
+- Took around 2 hours.
 */
 
 // FROM YOU => REPLY.
