@@ -9,6 +9,9 @@ v1.0
 v2.0
 - Added some authntication features, mainly to test out Fireship Auth.
 - Took around 2 hours.
+
+v2.1
+- More authentication features.
 */
 
 // FROM YOU => REPLY.

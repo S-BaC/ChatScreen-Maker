@@ -28,6 +28,9 @@ body{
     align-items: baseline;
 }
 
+#screenApp, #blogApp{
+    display:none;
+}
 .screen{
     font-size: 10px;
     position:relative;
@@ -185,7 +188,6 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:5px;
     width: 250px;
 }
 .logo{
@@ -195,12 +197,16 @@ body{
     width:50px;
     height:50px;
     padding:10px;
+    margin:auto;
 }
 .head{
+    display:none;
     padding:10px;
     background-color:var(--msgColor);
     color:white;
     width:200px;
+    border:none;
+    margin:5px;
 }
 .head:hover{
     cursor: pointer;
@@ -220,4 +226,31 @@ body{
 .signinForm input, .signinForm button{
     border:none;
     height:20px;
+}
+
+/*  Blog App Stuffs */
+
+#blogApp{
+    flex-direction: column;
+    margin-top:100px;
+    gap:10px;
+}
+.blogHead:target + .blogBody{
+    background-color: aqua;
+}
+.blogHead{
+    font-weight: bold;
+    flex:1 1 auto;
+    padding:10px;
+    width:500px;
+    background-color:var(--primaryColor);
+    margin:0px;
+}
+.blogHead:hover{
+    cursor: pointer;
+}
+.blogBody{
+    padding:10px;
+    border:1px dotted var(--msgColor);
+    margin:0px;
 }

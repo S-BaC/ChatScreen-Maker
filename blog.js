@@ -43,11 +43,22 @@ const showName = name => document.querySelector('.logo h3').textContent = `Hello
 
 //Snapshot Listener, kinda, for authentication states:
 auth.onAuthStateChanged((user)=>{
+    document.querySelectorAll('.head').forEach(e=>{
+        e.style.display='block';
+        })
     if(user){
-        logoImg.src = "icons/happy.png";
+        showName("Friend :)");  //Delete this for the showName effect at signIn.
+        logoImg.style.display = 'none';
+        document.querySelectorAll('.options')[0].style.display='none';
+        document.querySelectorAll('.options')[1].style.display='none';
+        document.querySelectorAll('.options')[2].style.display='block';
+        document.querySelector('.chooseApp').style.display='block';
     }
     else{
-        logoImg.src = 'icons/four-dots.png';
+        logoImg.style.display = 'block';
+        document.querySelectorAll('.options')[0].style.display='block';
+        document.querySelectorAll('.options')[1].style.display='block';
+        document.querySelector('.chooseApp').style.display='none';
     }
 })
 //Sign in (1)
@@ -86,4 +97,34 @@ const signUp = (username,email,password) => {
     console.log(username,email,password);
     auth.createUserWithEmailAndPassword(email,password)
         .then(()=>showName(username));
+}
+
+//Choosing Apps:
+const app = (appName) => {
+    document.querySelector(`#${appName}App`).style.display = 'flex';
+    if(appName = 'blog'){
+        document.querySelector('.blogAdder').style.display = 'block';
+    }
+}
+
+//Blog App
+
+/*
+    Gonna deal with the collapsible later
+                                            */
+
+//Updating the UI:
+const blogs = db.collection('blogs');
+
+blogs.onSnapshot(snapshot => {
+    snapshot.docs.forEach(doc=>
+        addToUI(doc.data().title, doc.data().content))
+    })
+
+const addToUI = (blogTitle, blogContent) => {
+    document.querySelector('#blogApp').innerHTML +=
+        `<div class="blog">
+            <p class="blogHead"> ${blogTitle} </p>
+            <p class="blogBody"> ${blogContent} </p>
+        </div>`
 }

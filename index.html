@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- column 1: LOGO AND AUTHENTICATION -->
+    <!-- column 1: LOGO AND AUTHENTICATION AND BUTTONS -->
     <div class="authPanel">
       <div class="logo">
         <h3> Welcome! Please log in.</h3>
         <img src="icons/four-dots.png" alt="logo" id="logoImg">
       </div>
+      <div class="chooseApp">
+        <div class="head" onclick="app('screen')"> Chat Screen </div>
+        <div class="head" onclick="app('blog')"> Blog </div>
+      </div>
+
       <div class="options">
         <div class="head" onclick="show(0)">
           Sign In
@@ -52,6 +57,12 @@
       </div>
     </div>
 
+    <div class="blogAdder">
+      
+    </div>
+
+    <!-- SCREEN -->
+    <div id="screenApp">
     <!-- column 2: USER INPUT -->
     <div class="userInput">
       <div class="optionPanel">
@@ -114,7 +125,27 @@
         <img src="icons/smile.png" class="topIcon"/>
     </div>
     </div>
+    </div>
 
+    <!-- THE BLOG -->
+    <div id="blogApp">
+      <div class="head" onclick="show(3)">
+        Add Blogs
+      </div>
+      <div class="body">
+        <form class="" id="SIF5">
+          <input type="text" id="title" placeholder="Title">
+          <input type="text" id="content" placeholder="Content">
+          <button> Add </button>
+        </form>
+      </div>                                                    
+      <div class="blog">
+        <p class="blogHead"> Title Here </p>
+        <p class="blogBody"> Text body here </p>
+      </div>
+    </div>
+
+    <!-- Script Tags -->
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
@@ -132,7 +163,7 @@
     firebase.initializeApp(config);
     </script>
 
-    <script src="backend.js"></script>
-    <script src="app.js"></script>
+    <script src="blog.js"></script>
+    <script src="chatScreen.js"></script>
   </body>
 </html>
