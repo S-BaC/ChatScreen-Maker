@@ -1,23 +1,12 @@
 /*
-
-v1.0
-- Started on 2022 Apr 22, 22:30.
-- Completed HTML, CSS around 0:15.
-- An extra 45 mins on design the next day.
-- Completed JS codes on 2022 Apr 22, 15:23, after around an hour.
-
-v2.0
-- Added some authntication features, mainly to test out Fireship Auth.
-- Took around 2 hours.
-
-v2.1
-- More authentication features.
+v0.0:   Mini-project that lets you make chat screens (kinda).
+        Authentication features and more on the way.
 */
 
 // FROM YOU => REPLY.
 // FROM CUSTOMER => MESSAGE.
-//Document Objects
 
+//Document Objects
 //TO INSERT
 const middle = document.querySelector('.middle');
 
@@ -74,8 +63,6 @@ const putMsg = (sender, message) => {
         </div>`;
     }
     inputForm.reset();
-    //Sender can be msg or reply.
-    
 }
 
 

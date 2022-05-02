@@ -14,6 +14,17 @@
 
 //REAL CODE STARTS FROM HERE:
 
+// Variables to access Firebase:
+// Saving UID
+let userID;
+
+// make auth and firestore references
+const auth = firebase.auth();
+const db = firebase.firestore();
+// update firestore settings
+db.settings({ timestampsInSnapshots: true });
+const blogs = db.collection('blogs');
+
 // Showing forms
 const forms = document.querySelectorAll('.body');
 const show = (formNumber) => {
@@ -23,13 +34,25 @@ const show = (formNumber) => {
     forms[formNumber].style.display = 'block';
 }
 
-// Variables to access Firebase:
+//Showing the blogs
+const addBlogs = () => {
+    const newBlog = document.querySelector('.newBlogBody');
+    newBlog.style.display === 'block' ?
+    newBlog.style.display = 'none':
+    newBlog.style.display = 'block';
+}
 
-// make auth and firestore references
-const auth = firebase.auth();
-const db = firebase.firestore();
-// update firestore settings
-db.settings({ timestampsInSnapshots: true });
+//Adding blogs
+const blogForm = document.querySelector('#newBlog');
+
+blogForm.addEventListener('submit', e => {
+    e.preventDefault();
+    blogs.add({
+        userID: userID,
+        title: blogForm['title'].value,
+        content: blogForm['content'].value
+    }).then(console.log(userID));
+})
 
 //Document Objects To Get Input
 const form1 = document.querySelector('#SIF1');
@@ -90,7 +113,7 @@ const signIn = (username,email,password) => {
     /*  NOTE: it doesn't work if the parameters(username,etc.) are accessed here.
         Probably because these functions are compiled with variables assigned in advance.....?? */
    auth.signInWithEmailAndPassword(email,password)
-        .then(()=>showName(username));
+        .then((cred)=>userID = cred.user.uid);
 }
 
 const signUp = (username,email,password) => {
@@ -102,9 +125,6 @@ const signUp = (username,email,password) => {
 //Choosing Apps:
 const app = (appName) => {
     document.querySelector(`#${appName}App`).style.display = 'flex';
-    if(appName = 'blog'){
-        document.querySelector('.blogAdder').style.display = 'block';
-    }
 }
 
 //Blog App
@@ -114,17 +134,17 @@ const app = (appName) => {
                                             */
 
 //Updating the UI:
-const blogs = db.collection('blogs');
 
 blogs.onSnapshot(snapshot => {
-    snapshot.docs.forEach(doc=>
-        addToUI(doc.data().title, doc.data().content))
-    })
+    snapshot.docChanges().forEach(change=>{
+        if(change.type==='added'){
+            addToUI(change.doc.data().title, change.doc.data().content);}
+    })});
 
 const addToUI = (blogTitle, blogContent) => {
     document.querySelector('#blogApp').innerHTML +=
         `<div class="blog">
             <p class="blogHead"> ${blogTitle} </p>
             <p class="blogBody"> ${blogContent} </p>
-        </div>`
+        </div>`;
 }
